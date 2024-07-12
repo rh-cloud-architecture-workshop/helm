@@ -1,0 +1,12 @@
+---
+apiVersion: infinispan.org/v2alpha1
+kind: Cache
+metadata:
+  generateName: {{ .Values.cache.name }}-
+spec:
+  clusterName: {{ .Values.datagrid.name }}
+  name: {{ .Values.cache.name }}
+  template:
+    {{- toYaml .Values.cache.template | nindent 4 }}
+  updates:
+    {{- toYaml .Values.cache.updates | nindent 4 }}
