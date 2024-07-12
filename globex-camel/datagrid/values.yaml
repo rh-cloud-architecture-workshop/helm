@@ -3,6 +3,23 @@ replicaCount: 1
 datagrid:
   name: globex-datagrid
 
+cache:
+  name: default
+  template:
+    distributedCache: 
+      owners: "2"
+      mode: "SYNC"
+      statistics: "true"
+      memory: 
+        storage: "OFF_HEAP"
+        maxSize: "633339904"
+        whenFull: "REMOVE"
+      partitionHandling: 
+        whenSplit: "ALLOW_READ_WRITES"
+        mergePolicy: "REMOVE_ALL"
+  updates:
+    strategy: retain
+
 truststore:
   name: client-infinispan.ts
 
