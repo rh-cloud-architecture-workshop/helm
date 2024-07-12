@@ -2,7 +2,7 @@
 apiVersion: infinispan.org/v2alpha1
 kind: Cache
 metadata:
-  generateName: {{ .Values.cache.name }}-
+  name: {{ .Values.cache.name }}-cache
 spec:
   clusterName: {{ .Values.datagrid.name }}
   name: {{ .Values.cache.name }}
