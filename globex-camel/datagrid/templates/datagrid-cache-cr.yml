@@ -6,7 +6,7 @@ metadata:
 spec:
   clusterName: {{ .Values.datagrid.name }}
   name: {{ .Values.cache.name }}
-  template:
+  template: |
     {{- toYaml .Values.cache.template | nindent 4 }}
   updates:
     {{- toYaml .Values.cache.updates | nindent 4 }}
