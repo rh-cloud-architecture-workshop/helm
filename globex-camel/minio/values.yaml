@@ -39,7 +39,7 @@ minio:
   region: us-east-1
   pvc:
     storage: 1Gi
-    storageClass: gp3-csi
+    storageClass: managed-csi
 
 client:
   secret:
