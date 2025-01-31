@@ -6,7 +6,7 @@ minio:
   region:
   pvc:
     storage: 1Gi
-    storageClass: gp3-csi
+    storageClass: managed-csi
   route:
     tlsEnabled: true
     tls:
