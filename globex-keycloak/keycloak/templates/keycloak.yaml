@@ -22,6 +22,8 @@ spec:
     enabled: {{ .Values.ingress.enabled }}
   http:
     httpEnabled: true
+  proxy:
+    headers: forwarded
   hostname:
     hostname: {{ include "keycloak.hostname" . }}
     strict: false
