@@ -67,7 +67,7 @@ mongodb:
     config:
       capacity: 1Gi
     db:
-      capacity: 1Gi
+      capacity: 2Gi
 
 argocd:
   enabled: true
