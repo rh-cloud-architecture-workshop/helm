@@ -3,7 +3,9 @@ kind: Deployment
 metadata:
   name: {{ include "mongodb.name" . }}
   labels:
+    app: "test"
     {{- include "mongodb.labels" . | nindent 4 }}
+    
   annotations:
     {{- include "mongodb.argocd-syncwave" . | nindent 4 }}
 spec:
