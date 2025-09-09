@@ -39,14 +39,14 @@ spec:
       transaction.state.log.replication.factor: {{ .Values.kafka.config.transactionStateLogReplicationFactor }}
       default.replication.factor: {{ .Values.kafka.config.defaultReplicationFactor }}
       min.insync.replicas: {{ .Values.kafka.config.minInsyncReplicas }}
-    {{- if .Values.kafka.metrics.enabled -}}
+    {{- if .Values.kafka.metrics.enabled}}
     metricsConfig:
       type: jmxPrometheusExporter
       valueFrom:
         configMapKeyRef:
           key: kafka-metrics-config.yml
           name: {{ include "kafka-broker.name" . }}-metrics
-    {{- end -}}
+    {{- end }}
   entityOperator:
     topicOperator:
       resources:
