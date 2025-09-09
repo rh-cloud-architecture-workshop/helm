@@ -47,6 +47,8 @@ kafka:
     requests:
       cpu: 300m
       memory: 500M
+  metrics:
+    enabled: false
 
 bootstrapServer: 
 
