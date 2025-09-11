@@ -2,8 +2,8 @@ nameOverride: "kafka"
 
 kafka:
   enabled: true
-  version: 4.0.0
-  metadataVersion: 4.0-IV3
+  version: 3.9.0
+  metadataVersion: 3.9-IV0
   broker:
     replicas: 3
   controller:
