@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
+  namespace: {{ .Values.namespace}}
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -22,6 +23,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
+  namespace: {{ .Values.namespace}}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -35,6 +37,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
+  namespace: {{ .Values.namespace}}
 rules:
 - apiGroups:
   - ""
@@ -57,6 +60,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
+  namespace: {{ .Values.namespace}}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -90,6 +94,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-prometheus
+  namespace: {{ .Values.namespace}}
 ---
 apiVersion: v1
 kind: Service
@@ -102,6 +107,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
+  namespace: {{ .Values.namespace}}
 spec:
   ports:
   - name: https
@@ -122,6 +128,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
+  namespace: {{ .Values.namespace}}
 spec:
   selector:
     matchLabels:
@@ -241,6 +248,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
+  namespace: {{ .Values.namespace}}
 spec:
   template:
     metadata:
@@ -270,6 +278,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
+  namespace: {{ .Values.namespace}}
 spec:
   port:
     targetPort: https
@@ -290,6 +299,7 @@ metadata:
     app.kubernetes.io/part-of: skupper-network-observer
     app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-client
+  namespace: {{ .Values.namespace}}
 spec:
   ca: skupper-local-ca
   client: true

@@ -1,2 +1,5 @@
 replicaCount: 1
 
+
+nameSpace: globex-skupper-common
+  
