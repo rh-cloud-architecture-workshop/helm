@@ -3,4 +3,4 @@ apiVersion: project.openshift.io/v1
 metadata:
   name: {{ .Values.namespace}}
   annotations:
-    argocd.argoproj.io/sync-wave: -1
+    argocd.argoproj.io/sync-wave: "-1"
