@@ -7,9 +7,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
-  namespace: openshift-operators
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -21,9 +20,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
-  namespace: openshift-operators
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -35,9 +33,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
-  namespace: openshift-operators
 rules:
 - apiGroups:
   - ""
@@ -58,9 +55,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
-  namespace: openshift-operators
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -92,9 +88,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-prometheus
-  namespace: openshift-operators
 ---
 apiVersion: v1
 kind: Service
@@ -105,9 +100,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
-  namespace: openshift-operators
 spec:
   ports:
   - name: https
@@ -126,9 +120,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
-  namespace: openshift-operators
 spec:
   selector:
     matchLabels:
@@ -140,7 +133,7 @@ spec:
         app.kubernetes.io/instance: skupper-network-observer
         app.kubernetes.io/name: network-observer
         app.kubernetes.io/part-of: skupper-network-observer
-        app.kubernetes.io/version: 2.0.1
+        app.kubernetes.io/version: 2.1.1
     spec:
       containers:
       - args:
@@ -150,7 +143,7 @@ spec:
         - -router-tls-ca=/etc/messaging/ca.crt
         - -router-tls-cert=/etc/messaging/tls.crt
         - -router-tls-key=/etc/messaging/tls.key
-        image: registry.redhat.io/service-interconnect/skupper-network-observer-rhel9@sha256:498b5bb648e5bbaad07663941600173abac7d60a10744305f619509ddf7563e0
+        image: registry.redhat.io/service-interconnect/skupper-network-observer-rhel9@sha256:4f66c398084041f0625f9075a38bcc760c7154d8c0ec5b5e6dada7de2a0b3ca2
         imagePullPolicy: Always
         name: network-observer
         ports:
@@ -169,7 +162,7 @@ spec:
       - args:
         - --config.file=/etc/prometheus/prometheus.yml
         - --storage.tsdb.path=/prometheus/
-        image: registry.redhat.io/openshift4/ose-prometheus-rhel9@sha256:bd3f72544841c91c2d573a65ac3c988756f3523e17e0988027793b0f5f3ec3d1
+        image: registry.redhat.io/openshift4/ose-prometheus-rhel9@sha256:4e4842a8dc452bc6fe84e8d76a4cf2c8e32d5de8f7cbbdb88841768db7ec03bd
         imagePullPolicy: IfNotPresent
         name: prometheus
         ports:
@@ -195,7 +188,7 @@ spec:
         - -tls-cert=/etc/certificates/tls.crt
         - -tls-key=/etc/certificates/tls.key
         - -cookie-secret-file=/etc/session-secrets/secret
-        image: registry.redhat.io/openshift4/ose-oauth-proxy-rhel9@sha256:92f44cff160874efe57a985609e599b13c49c0c4cef846dccc80833af2ae74f3
+        image: registry.redhat.io/openshift4/ose-oauth-proxy-rhel9@sha256:e8df53454cf12a14338790af6ed209798010990ca3320096e8b44acf901c4123
         imagePullPolicy: IfNotPresent
         name: proxy
         ports:
@@ -246,9 +239,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-setup
-  namespace: openshift-operators
 spec:
   template:
     metadata:
@@ -256,7 +248,7 @@ spec:
         app.kubernetes.io/instance: skupper-network-observer
         app.kubernetes.io/name: network-observer
         app.kubernetes.io/part-of: skupper-network-observer
-        app.kubernetes.io/version: 2.0.1
+        app.kubernetes.io/version: 2.1.1
       name: skupper-network-observer
     spec:
       containers:
@@ -264,7 +256,7 @@ spec:
         - ensure-secret
         - -format=oauth2-proxy-session-cookie
         - skupper-network-observer-session
-        image: registry.redhat.io/service-interconnect/skupper-network-observer-rhel9@sha256:498b5bb648e5bbaad07663941600173abac7d60a10744305f619509ddf7563e0
+        image: registry.redhat.io/service-interconnect/skupper-network-observer-rhel9@sha256:4f66c398084041f0625f9075a38bcc760c7154d8c0ec5b5e6dada7de2a0b3ca2
         name: init-session-cookie
       restartPolicy: Never
       serviceAccountName: skupper-network-observer-setup
@@ -276,9 +268,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer
-  namespace: openshift-operators
 spec:
   port:
     targetPort: https
@@ -297,9 +288,8 @@ metadata:
     app.kubernetes.io/instance: skupper-network-observer
     app.kubernetes.io/name: network-observer
     app.kubernetes.io/part-of: skupper-network-observer
-    app.kubernetes.io/version: 2.0.1
+    app.kubernetes.io/version: 2.1.1
   name: skupper-network-observer-client
-  namespace: openshift-operators
 spec:
   ca: skupper-local-ca
   client: true
