@@ -39,3 +39,7 @@ ui:
     requests:
       cpu: 125m
       memory: 512Mi
+
+probes:
+  livelinessErrorThreshold: 60
+  readinessErrorThreshold: 10
