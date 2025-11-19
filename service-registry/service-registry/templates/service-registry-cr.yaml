@@ -36,9 +36,9 @@ spec:
       - name: REGISTRY_API_URL
         value: 'https://{{ .Values.app.route.host }}/apis/registry/v3'
       - name: LIVENESS_ERROR_THRESHOLD
-        value: {{ .Values.probes.livelinessErrorThreshold }}
+        value: '60'
       - name: READINESS_ERROR_THRESHOLD
-        value: {{ .Values.probes.readinessErrorThreshold }}
+        value: '60'
     podTemplateSpec:
       spec:
         containers:
